@@ -1,12 +1,12 @@
-# React + Vite
+English
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+With Stylo is the official website and documentation for the With Stylo library — a toolkit designed to make styling projects faster, cleaner, and more intuitive.
+With Stylo allows developers to apply layouts, typography, spacing, and animations with single-line SCSS mixins, keeping HTML semantic and code maintainable.
+It also provides self-documenting commands, ready-to-use utilities, and standardized patterns that improve workflow efficiency and team collaboration.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Русский
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+With Stylo — официальный веб-сайт и документация для библиотеки With Stylo — инструмента, который делает процесс стилизации проектов быстрее, чище и удобнее.
+С With Stylo разработчики могут применять макеты, типографику, отступы и анимации с помощью однострочных SCSS-миксинов, сохраняя семантику HTML и поддерживаемость кода.
+Библиотека предоставляет автокомментируемые команды, готовые утилиты и стандартизированные шаблоны, повышающие эффективность работы и командное взаимодействие.
