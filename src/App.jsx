@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import "./App.scss";
 import AppRouter from "./Router/AppRouter";
 import ScreenLoader from "./Components/ScreenLoader/ScreenLoader";
+
+import "./App.scss";
 
 function App() {
   const [loader, setLoader] = useState(true);
   useEffect(() => {
-    const handleLoader = () => setLoader(false);
+    const handleLoader = setTimeout(() => setLoader(false), 2000);
 
-    addEventListener("load", handleLoader);
-
-    return () => window.removeEventListener("load", handleLoader);
+    return () => clearTimeout(handleLoader);
   }, []);
 
   return <>{loader ? <ScreenLoader /> : <AppRouter />}</>;
