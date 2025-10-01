@@ -1,0 +1,9 @@
+@use "../../GlobalStyle/main.scss" as *;
+
+.documentationMain {
+  /// withPosition: sets position and optional inset or individual offsets (top, right, bottom, left)
+  @include withPosition($position: relative);
+  /// withSpace
+  /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+  @include withSpace($padding: $space-element 0);
+}

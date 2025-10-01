@@ -1,0 +1,33 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+/// withMedia mixin — 1-maxWidth, 2-minWidth; use @content for nested styles
+@include withMedia($maxWidth: 600px, $minWidth: null) {
+  .navigationList {
+    display: none !important;
+  }
+  .burgerButton {
+    display: block !important;
+  }
+  .burgerMenu {
+    /// withPosition: sets position and optional inset or individual offsets (top, right, bottom, left)
+    @include withPosition($position: absolute, $right: 0);
+    /// withTransform mixin — normal: transform for default state, hover: transform on hover, active: transform on active
+    @include withTransform($normal: translateX(180px));
+    transition: 0.5s ease-in;
+    .burgerMenuItem {
+      /// withFlex
+      /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+      @include withFlex($display: flex, $align-items: flex-end, $flex-direction: column, $gap: 20px);
+      /// withShadow mixin — 1-boxShadow, 2-textShadow, 3-glow, 4-inset (true/false)
+      @include withShadow($boxShadow: -1px 1px 19px -12px, $inset: true);
+      /// withBackground
+      /// 1-color, 2-repeat, 3-position, 4-size, 5-attachment (scroll, fixed, local)
+      @include withBackground($color: $color-white-bg, $repeat: null, $position: null, $size: null, $attachment: null);
+      /// withSpace
+      /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+      @include withSpace($padding: 20px);
+      /// withBorder mixin — 1-border, 2-borderRadius, 3-outline
+      @include withBorder($border: null, $borderRadius: 10px, $outline: null);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "./GlobalStyle/main.scss" as *;
+
+/// Hard reset of default browser styles — box-sizing, margins, paddings, lists, links, forms, tables, images, media, interactive elements
+@include withReset();
+
+/// withContainer mixin — define your custom class, max-width, margin, and padding
+@include withContainer($class: "container", $max-width: 1300px, $margin: auto, $padding: 0 $container-padding);
+
+* {
+  // outline: 1px solid red;
+}

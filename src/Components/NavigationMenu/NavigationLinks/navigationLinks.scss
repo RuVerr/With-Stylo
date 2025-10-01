@@ -1,0 +1,23 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+.navigationList {
+  /// withFlex
+  /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+  @include withFlex($display: flex, $justify-content: flex-end, $flex-direction: row, $gap: $space-element-gap);
+  width: 100%;
+  .navigationLink {
+    /// withFont
+    /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+    @include withFont(
+      $font-family: $font-roboto-regular,
+      $font-size: $font-text-navigation,
+      $white-space: nowrap,
+      $user-select: false
+    );
+  }
+}
+
+.active {
+  color: $color-magenta-font;
+  transition: 0.3s ease-in;
+}

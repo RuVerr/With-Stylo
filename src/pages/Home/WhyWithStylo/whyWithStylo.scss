@@ -1,0 +1,48 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+.whyWithStylo {
+  /// withSpace
+  /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+  @include withSpace($padding: $space-element 0);
+  .whyWithStyloTitle {
+    /// withFont
+    /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+    @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-title, $user-select: true);
+    text-align: center;
+  }
+  .whyWithStyloMainBox {
+    /// withFlex
+    /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+    @include withFlex($display: flex, $align-items: center, $gap: $space-element-gap);
+    /// withSpace
+    /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+    @include withSpace($mt: $space-element-v2);
+    .whyWithStylolistTitle {
+      /// withFont
+      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+      @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-subtitle, $font-weight: 500);
+      max-width: 1049px;
+    }
+    .pWhyWithStyloItem {
+      /// withFont
+      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+      @include withFont($font-family: $font-roboto-regular, $font-size: $font-paragraph);
+      max-width: 770px;
+      /// withSpace
+      /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+      @include withSpace($mt: 10px);
+    }
+    .withStyloImgBox {
+      max-width: 500px;
+      /// withBorder mixin — 1-border, 2-borderRadius, 3-outline
+      @include withBorder($borderRadius: 20px !important);
+      overflow: hidden;
+      .withStyloImg {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+      }
+    }
+  }
+}

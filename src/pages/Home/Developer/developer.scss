@@ -1,0 +1,45 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+.developer {
+  /// withSpace
+  /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+  @include withSpace($pb: $space-element);
+  .developerContent {
+    .developerTitleMain {
+      /// withFont
+      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+      @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-title, $user-select: true);
+    }
+    .developerImgBox {
+      /// withSpace
+      /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+      @include withSpace($mt: $space-element-v2);
+      width: 100%;
+      /// withFlex
+      /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+      @include withFlex($display: flex, $gap: $space-element-gap);
+      .developerImg {
+        /// withBorder mixin — 1-border, 2-borderRadius, 3-outline
+        @include withBorder($borderRadius: 50% 0 0 50%);
+        width: 200px;
+      }
+      .developerTitleInParagraph {
+        .developerTitle {
+          /// withFont
+          /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+          @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-subtitle, $user-select: true);
+        }
+        .developerTitle2 {
+          @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-subtitle-v2, $user-select: true);
+        }
+        .pDeveloper {
+          @include withFont($font-family: $font-roboto-regular, $font-size: $font-paragraph, $user-select: true);
+          max-width: 450px;
+          /// withSpace
+          /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+          @include withSpace($mt: 15px);
+        }
+      }
+    }
+  }
+}

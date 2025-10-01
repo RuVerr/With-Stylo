@@ -1,0 +1,23 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+.headerContent {
+  /// widthHeight: sets width and height; pass null to skip a dimension
+  @include widthHeight($width: 100%, $height: auto);
+  /// withFlex
+  /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+  @include withFlex($display: flex, $justify-content: center, $align-items: center);
+  .headerTitle {
+    transition: 0.3s;
+    /// withFont
+    /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+    @include withFont($font-family: $font-lobster-regular, $font-size: $font-header, $user-select: false);
+    /// withSpace
+    /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+    @include withSpace($padding: $space-element-header 0);
+    .headerWith,
+    .headerStylo {
+      color: $color-magenta-font;
+      transition: 0.2s ease-in;
+    }
+  }
+}

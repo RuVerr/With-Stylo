@@ -1,0 +1,93 @@
+@use "../../../GlobalStyle/main.scss" as *;
+
+// rc-Recurring commands______________________
+
+@mixin rcBackground($deg) {
+  background: linear-gradient(
+    $deg,
+    rgb(79, 0, 91) 0%,
+    rgb(108, 0, 101) 8.3%,
+    rgb(136, 0, 114) 16.6%,
+    rgb(161, 0, 128) 25%,
+    rgb(183, 0, 144) 33.3%,
+    rgb(200, 0, 160) 41.6%,
+    rgb(212, 0, 178) 50%,
+    rgb(219, 0, 196) 58.3%,
+    rgb(220, 0, 213) 66.6%,
+    rgb(215, 0, 230) 75%,
+    rgb(204, 0, 246) 83.3%,
+    rgb(188, 3, 255) 91.6%,
+    rgb(167, 6, 255) 100%
+  );
+}
+
+// Recurring commands______________________
+
+.documentationBar {
+  /// withPosition: sets position and optional inset or individual offsets (top, right, bottom, left)
+  @include withPosition($position: fixed, $top: 90px, $right: -220px);
+  /// withFlex
+  /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+  @include withFlex($display: flex, $align-items: center, $flex-direction: row-reverse);
+  z-index: 100;
+  height: 100vh;
+  transition: 0.3s cubic-bezier(0.7, 0.01, 0.31, 0.98);
+  .documentationSideBarButton {
+    cursor: pointer;
+    /// widthHeight: sets width and height; pass null to skip a dimension
+    @include widthHeight($width: 64px, $height: 64px);
+    // rc-Recurring commands
+    @include rcBackground(88deg);
+    /// withBorder mixin — 1-border, 2-borderRadius, 3-outline
+    @include withBorder($borderRadius: 10px 0 0 10px);
+  }
+  .documentationBarContent {
+    /// withSpace
+    /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+    @include withSpace($padding: 20px 0);
+    /// widthHeight: sets width and height; pass null to skip a dimension
+    @include widthHeight($width: auto, $height: 100vh);
+    /// withBorder mixin — 1-border, 2-borderRadius, 3-outline
+    @include withBorder($border: 1px solid $color-magenta-bg, $borderRadius: 20px 0 0 20px);
+    /// withSpace
+    /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+    @include withSpace($mt: 40px);
+    overflow: auto;
+    // rc-Recurring commands
+    @include rcBackground(227deg);
+    .documentationBarList {
+      padding: 10px 0;
+      .documentationBarItem {
+        cursor: pointer;
+        .documentationButton {
+          /// withButtonBox
+          /// 1-padding,2-margin,3-width,4-height
+          @include withButtonBox($padding: 5px 10px, $margin: 10px 10px 10px 0);
+          /// withButtonFont
+          /// 1-font-family,2-font-size,3-color,4-text-align
+          @include withButtonFont(
+            $fontFamily: $font-roboto-regular,
+            $fontSize: 18px,
+            $color: $color-white-font,
+            $textAlign: center
+          );
+        }
+      }
+    }
+  }
+}
+
+.buttonActive {
+  backdrop-filter: blur(100px);
+  /// withButtonBackground
+  /// 1-bg-color,2-border,3-border-radius
+  @include withButtonBackground(
+    $bgColor: $color-light-black,
+    $border: 1px solid $color-white-bg,
+    $borderRadius: 0 20px 20px 0
+  );
+}
+
+.sideBarDisable {
+  transform: translateX(-220px);
+}

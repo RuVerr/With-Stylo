@@ -1,0 +1,19 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+/// withMedia mixin — 1-maxWidth, 2-minWidth; use @content for nested styles
+@include withMedia($maxWidth: 655px) {
+  .developerImgBox {
+    /// withFlex
+    /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+    @include withFlex($align-items: center, $flex-direction: column);
+    .developerImg {
+      /// withBorder mixin — 1-border, 2-borderRadius, 3-outline
+      @include withBorder($borderRadius: 50% 50% 0 0 !important);
+    }
+    .developerTitle,
+    .developerTitle2,
+    .pDeveloper {
+      text-align: center;
+    }
+  }
+}

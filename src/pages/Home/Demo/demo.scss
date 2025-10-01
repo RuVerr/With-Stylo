@@ -1,0 +1,33 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+.demo {
+  /// withSpace
+  /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+  @include withSpace($pb: $space-element);
+  .demoContent {
+    .demoTitle {
+      /// withFont
+      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+      @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-title, $user-select: false);
+    }
+    .videoBox {
+      /// withSpace
+      /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+      @include withSpace($mt: $space-element-v2);
+      /// widthHeight: sets width and height; pass null to skip a dimension
+      @include widthHeight($width: 100%, $height: auto);
+      /// withFlex
+      /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+      @include withFlex($display: flex, $align-items: center, $flex-direction: column);
+      /// withSpace
+      /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+      @include withSpace($padding: $space-element);
+      background: #3333de;
+      background: linear-gradient(0deg, rgba(51, 51, 222, 1) 0%, rgba(205, 47, 155, 1) 100%);
+      border-radius: 50px;
+      video {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+.navigationNav {
+  transition: 0.3s ease-in;
+  /// withPosition: sets position and optional inset or individual offsets (top, right, bottom, left)
+  @include withPosition($position: fixed, $top: 20px, $right: 0, $left: 0);
+  z-index: 1000;
+  /// widthHeight: sets width and height; pass null to skip a dimension
+  @include widthHeight($width: 100%, $height: null);
+  
+  .navigationMenuContent {
+    /// withFlex
+    /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+    @include withFlex($display: flex, $justify-content: space-between, $align-items: center);
+    /// withBackground
+    /// 1-color, 2-repeat, 3-position, 4-size, 5-attachment (scroll, fixed, local)
+    @include withBackground($color: $color-white-bg);
+    /// withSpace
+    /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+    @include withSpace($padding: $padding-navigation 20px);
+    /// withBorder mixin — 1-border, 2-borderRadius, 3-outline
+    @include withBorder($borderRadius: 35px);
+    /// withShadow mixin — 1-boxShadow, 2-textShadow, 3-glow, 4-inset (true/false)
+    @include withShadow($boxShadow: -1px 1px 19px -12px, $inset: true);
+    .navigationLogo {
+      /// withFont
+      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+      @include withFont(
+        $font-family: $font-lobster-regular,
+        $font-size: $font-size-logo,
+        $user-select: false,
+        $letter-spacing: nowrap
+      );
+      .logoColorStylo {
+        color: $color-magenta-font;
+      }
+    }
+  }
+  .burgerButton {
+    cursor: pointer;
+    display: none;
+  }
+  .burgerMenuItem {
+    display: none;
+  }
+}
+
+.scrollShow {
+  transform: translateY(0);
+}
+
+.scrollHidden {
+  transform: translateY(-100px);
+}

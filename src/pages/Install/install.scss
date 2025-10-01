@@ -1,0 +1,26 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+.install {
+  /// withSpace
+  /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+  @include withSpace($padding: $space-element 0);
+  .installContent {
+    .installTitle {
+      /// withSpace
+      /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+      @include withSpace($margin: 15px 0);
+      /// withFont
+      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+      @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-title);
+    }
+    .installSubtitle {
+      /// withSpace
+      /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+      //   @include withSpace($margin: 10px 0);
+
+      /// withFont
+      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+      @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-subtitle);
+    }
+  }
+}

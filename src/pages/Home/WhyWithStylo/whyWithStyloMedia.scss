@@ -1,0 +1,10 @@
+@use "/src/GlobalStyle/main.scss" as *;
+
+/// withMedia mixin — 1-maxWidth, 2-minWidth; use @content for nested styles
+@include withMedia($maxWidth: 1024px) {
+  .whyWithStyloMainBox {
+    /// withFlex
+    /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+    @include withFlex($flex-direction: column);
+  }
+}

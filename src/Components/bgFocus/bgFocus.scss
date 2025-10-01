@@ -1,0 +1,5 @@
+.bgFocus {
+  /// bgFixedFocus: fixed fullscreen overlay; color — optional background color; zIndex — optional stacking order
+  @include bgFixedFocus($zIndex: 2);
+  transition: 0.3s ease-in;
+}
