@@ -1,0 +1,5 @@
+.screenLoader {
+  width: 100%;
+  /// Centers element in viewport using fixed position, not Flex box position: fixed; top: 50%, left: 50%; transform: translate(-50%, -50%); zIndex — optional z-index
+  @include bgFixedAndCenter($zIndex: 10000);
+}
