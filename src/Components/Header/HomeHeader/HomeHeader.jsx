@@ -4,7 +4,7 @@ import "./HomeHeader.scss";
 
 export default function HomeHeader() {
   let [headerBgAnimAngle, setHeaderBgAnimAngle] = useState(15);
-  const shadow = "drop-shadow(4px 3px 2px rgba(0, 0, 0, 16.5))";
+  const shadow = "0 0 1px black";
   const prevMouseX = useRef(null);
   const prevTouchY = useRef(null);
 
@@ -67,7 +67,7 @@ export default function HomeHeader() {
               className="headerWith"
               style={{
                 color: headerBgAnimAngle > 200 && headerBgAnimAngle < 325 ? "#eb36c0" : "black",
-                filter: headerBgAnimAngle > 200 && headerBgAnimAngle < 325 ? shadow : "none"
+                textShadow: headerBgAnimAngle > 200 && headerBgAnimAngle < 325 ? shadow : "none"
               }}
             >
               With
@@ -76,9 +76,8 @@ export default function HomeHeader() {
               className="headerStylo"
               style={{
                 color: headerBgAnimAngle > 200 && headerBgAnimAngle < 325 ? "black" : "#eb36c0",
-                filter: headerBgAnimAngle > 200 && headerBgAnimAngle < 325 ? "none" : shadow
+                textShadow: headerBgAnimAngle > 200 && headerBgAnimAngle < 325 ? "none" : shadow
               }}
-              
             >
               Stylo
             </span>

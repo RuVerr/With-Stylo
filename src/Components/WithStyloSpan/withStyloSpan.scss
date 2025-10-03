@@ -17,6 +17,6 @@
   .stylo {
     @extend %--withFont;
     color: $color-magenta-font;
-    filter: drop-shadow(4px 3px 2px rgba(0, 0, 0, 16.5))
+    text-shadow: 0 0 1px black;
   }
 }

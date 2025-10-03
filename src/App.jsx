@@ -7,7 +7,7 @@ import "./App.scss";
 function App() {
   const [loader, setLoader] = useState(true);
   useEffect(() => {
-    const handleLoader = setTimeout(() => setLoader(false), 2000);
+    const handleLoader = setTimeout(() => setLoader(false), 3000);
 
     return () => clearTimeout(handleLoader);
   }, []);
