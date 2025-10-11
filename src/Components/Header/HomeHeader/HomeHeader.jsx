@@ -9,7 +9,7 @@ export default function HomeHeader() {
   const lastSource = useRef("scroll");
   const headerRef = useRef(null);
   const elementIsVisible = useRef(false);
-  const shadow = "0";
+  const shadow = "1px 1px #000000";
 
   const handleMouseMove = (e) => {
     if (!elementIsVisible.current) return;
