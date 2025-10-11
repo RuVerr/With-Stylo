@@ -6,7 +6,7 @@ import { useDocsContent } from "../../../Store/DocumentationContent/Documentatio
 import sideBarIcon from "../../../images/Icon/sideBarIcon.png";
 
 import "./documentationBar.scss";
-import BgFocus from "../../../Components/bgFocus/bgFocus";
+import BgFocus from "../../../Components/bgFocus/BgFocus";
 
 export default function DocumentationBar() {
   const setActiveId = useDocsContent((state) => state.setActiveId);
