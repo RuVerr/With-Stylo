@@ -55,7 +55,7 @@ const burgerIconActive = (
 
 import "./navigation.scss";
 import "./navigationMedia.scss";
-import BgFocus from "../bgFocus/bgfocus";
+import BgFocus from "../bgFocus/bgFocus";
 
 export default function NavigationMenu() {
   const [burgerShow, setBurgerShow] = useState(false);
