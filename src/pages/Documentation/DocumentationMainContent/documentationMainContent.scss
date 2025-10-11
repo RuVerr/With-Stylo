@@ -5,28 +5,33 @@
   overflow-y: auto;
   .documentationContent {
     max-width: 100%;
-    .documentationContentInfoTitle {
-      /// withFont
-      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
-      @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-title);
-    }
-    .documentationContentInfoSubtitle {
-      /// withFont
-      /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
-      @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-subtitle);
-    }
-    .pDocumentationContentMainInfo {
-      .argumentsBox {
-        /// withFlex
-        /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
-        @include withFlex($display: flex, $align-items: center, $gap: 10px);
-        .pDocumentationContentArguments {
-          white-space: pre-wrap;
+    .documentationContentInfo {
+      /// withSpace
+      /// 1-margin, 2-padding, 3-mt(margin-top), 4-mr(margin-right), 5-mb(margin-bottom, 6-ml(margin-left), 7-pt(padding-top), 8-pr(padding-right), 9-pb(padding-bottom), 10-pl(padding-left)
+      @include withSpace($pr: 59px);
+      .documentationContentInfoTitle {
+        /// withFont
+        /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+        @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-title);
+      }
+      .documentationContentInfoSubtitle {
+        /// withFont
+        /// 1-font-family, 2-font-size, 3-white-space, 4-user-select copy text = true or false, 5-font-weight, 6-line-height, 7-letter-spacing
+        @include withFont($font-family: $font-roboto-regular, $font-size: $font-text-subtitle);
+      }
+      .pDocumentationContentMainInfo {
+        .argumentsBox {
+          /// withFlex
+          /// 1-display,2-justify-content,3-align-items,4-flex-direction,5-flex-wrap,6-gap
+          @include withFlex($display: flex, $align-items: center, $gap: 10px);
+          .pDocumentationContentArguments {
+            white-space: pre-wrap;
+          }
         }
       }
-    }
-    .documentationContentInfoMainExample {
-      @include withSpace($mt: 20px);
+      .documentationContentInfoMainExample {
+        @include withSpace($mt: 20px);
+      }
     }
   }
 }

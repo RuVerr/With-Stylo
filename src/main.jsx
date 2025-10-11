@@ -7,4 +7,11 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
   </StrictMode>,
+
+  window.addEventListener("load", () =>{
+    const loader = document.getElementById("screenLoader");
+    if(loader){
+      loader.remove()
+    }
+  })
 )

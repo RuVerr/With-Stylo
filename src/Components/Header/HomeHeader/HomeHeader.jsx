@@ -1,46 +1,85 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "./HomeHeader.scss";
 
 export default function HomeHeader() {
   let [headerBgAnimAngle, setHeaderBgAnimAngle] = useState(15);
-  const shadow = "0 0 1px black";
   const prevMouseX = useRef(null);
-  const prevTouchY = useRef(null);
+  const prevScrollY = useRef(null);
+  const lastSource = useRef("scroll");
+  const headerRef = useRef(null);
+  const elementIsVisible = useRef(false);
+  const shadow = "0";
 
   const handleMouseMove = (e) => {
+    if (!elementIsVisible.current) return;
+
     const x = e.clientX;
+
+    if (lastSource.current !== "mouse") {
+      prevMouseX.current = x;
+      lastSource.current = "mouse";
+      return;
+    }
+
     if (prevMouseX.current != null) {
-      const angleSpeed = 6;
-      if (x > prevMouseX.current) {
-        setHeaderBgAnimAngle((prev) => (prev + angleSpeed) % 365);
-      } else if (x < prevMouseX.current) {
-        setHeaderBgAnimAngle((prev) => (prev - angleSpeed + 365) % 365);
-      }
+      const deltaX = x - prevMouseX.current;
+      const mouseSpeed = 0.3;
+      setHeaderBgAnimAngle((prev) => (prev + deltaX * mouseSpeed + 360) % 360);
     }
 
     prevMouseX.current = x;
+    lastSource.current = "mouse";
   };
 
-  const handleTouchMove = (e) => {
-    if (e.touches.length === 0) return;
-    const touchY = e.touches[0].clientY;
-    const angleSpeed = 5;
+  useEffect(() => {
+    lastSource.current = "scroll";
 
-    if (prevTouchY.current != null) {
-      if (touchY < prevTouchY.current) {
-        setHeaderBgAnimAngle((prev) => (prev + angleSpeed) % 365);
-      } else if (touchY > prevTouchY.current) {
-        setHeaderBgAnimAngle((prev) => (prev - angleSpeed + 365) % 365);
+    const handleScroll = () => {
+      if (!elementIsVisible.current) return;
+      const y = window.scrollY;
+
+      if (lastSource.current !== "scroll") {
+        prevScrollY.current = y;
+        lastSource.current = "scroll";
+        return;
       }
+      const deltaY = y - prevScrollY.current;
+      const scrollFactor = 0.5;
+
+      setHeaderBgAnimAngle((prev) => (prev + deltaY * scrollFactor + 360) % 360);
+
+      prevScrollY.current = y;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        elementIsVisible.current = entry.isIntersecting;
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    if (headerRef.current) {
+      observer.observe(headerRef.current);
     }
 
-    prevTouchY.current = touchY;
-  };
+    return () => {
+      if (headerRef.current) observer.unobserve(headerRef.current);
+    };
+  }, []);
 
   return (
     <header
       className="header"
+      ref={headerRef}
+      onMouseMove={handleMouseMove}
       style={{
         background: `conic-gradient(from ${headerBgAnimAngle}deg, 
         rgba(79, 0, 91, 1.000) 0.000deg, 
@@ -57,8 +96,6 @@ export default function HomeHeader() {
         rgba(188, 3, 255, 1.000) 330.000deg, 
         rgba(167, 6, 255, 1.000) 360.000deg)`
       }}
-      onMouseMove={handleMouseMove}
-      onTouchMove={handleTouchMove}
     >
       <div className="container">
         <div className="headerContent">
