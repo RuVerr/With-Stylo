@@ -1,4 +1,3 @@
-// src/main.jsx
 import React from "react";
 import App from "./App";
 import { StrictMode } from "react";
