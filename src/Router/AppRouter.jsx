@@ -8,7 +8,7 @@ import Documentation from "../pages/Documentation/Documentation";
 
 export default function AppRouter() {
   return (
-    <BrowserRouter basename="/With-Stylo/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
