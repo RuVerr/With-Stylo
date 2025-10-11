@@ -6,7 +6,6 @@ import { createRoot } from "react-dom/client";
 
 import "./index.scss";
 
-// Лоадер из HTML
 window.addEventListener("load", () => {
   const loader = document.getElementById("screenLoader");
   if (loader) {
